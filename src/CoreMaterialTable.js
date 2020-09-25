@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { uuidv4 } from "../utils/GlobalUtils";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -9,6 +8,14 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { useTheme } from '@material-ui/styles';
 
+function uuidv4() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+  
 /**
  * Trying to create a minimalistic compatible placeholder for https://github.com/mbrn/material-table 
  * The aim is to replace <MaterialTable> tag with <CoreMaterialTable> without other changes to the sourcecode
